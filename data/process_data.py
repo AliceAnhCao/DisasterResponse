@@ -2,6 +2,7 @@ import sys
 import pandas as pd
 from sqlalchemy import create_engine
 import sqlite3
+import os
 
 #Connect to the database
 #conn = sqlite3.connect('Prject2.db')
@@ -53,6 +54,10 @@ def clean_data(df):
     
     #Remove duplicates
     df.drop_duplicates(inplace=True)
+
+    #The values in your cleaned data_frame should contain only binary values(i.e either 0 or 1)
+    #You will find that certain "related" values are "related-2" which doesn't make any sense. Therefore, replace 2 by 1
+    df['related'] = df['related'].map(lambda x: 1 if x==2 else x)
     
     return df
 
