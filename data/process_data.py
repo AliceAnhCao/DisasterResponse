@@ -45,6 +45,10 @@ def clean_data(df):
     
         # convert column from string to numeric
         categories[column] = categories[column].astype(int)
+
+        #The values in your cleaned data_frame should contain only binary values(i.e either 0 or 1)
+        #You will find that certain "related" values are "related-2" which doesn't make any sense. Therefore, replace 2 by 1
+        categories[column] = categories[column].map(lambda x: 1 if x==2 else x)
     
     #Drop the original categories column from df
     df = df.drop('categories',axis = 1)
@@ -55,9 +59,7 @@ def clean_data(df):
     #Remove duplicates
     df.drop_duplicates(inplace=True)
 
-    #The values in your cleaned data_frame should contain only binary values(i.e either 0 or 1)
-    #You will find that certain "related" values are "related-2" which doesn't make any sense. Therefore, replace 2 by 1
-    df['related'] = df['related'].map(lambda x: 1 if x==2 else x)
+
     
     return df
 
