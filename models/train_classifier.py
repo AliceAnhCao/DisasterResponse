@@ -41,11 +41,11 @@ def load_data(database_filepath):
     category_names = y.columns
     return X, y, category_names
 
-def tokenize(text):
+def tokenize(text_data):
     '''
-    Function to tokenize text message
+    Function to tokenize text_data message
     Input:
-        text: raw text
+        text_data: raw text
     
     Output:
         clean_tokens: tokenized messages
