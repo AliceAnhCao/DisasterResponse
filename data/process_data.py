@@ -37,6 +37,7 @@ def clean_data(df):
     
     #Use this row to extract a list of new column names for categories dataframe
     category_colnames = row.apply(lambda x:x[:-2])
+    categories.columns = category_colnames
     
     #Convert category values to just numbers 0 or 1
     for column in categories:
