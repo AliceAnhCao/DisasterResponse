@@ -114,7 +114,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
     y_predict = model.predict(X_test)
     
     # classification_report with test data
-    print(classification_report(y_test.values,       y_predict, target_names=y.columns.values))
+    print(classification_report(Y_test.values,       y_predict, target_names=y.columns.values))
     
     
     
